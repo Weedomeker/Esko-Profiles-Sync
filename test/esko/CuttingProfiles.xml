@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Description>This table holds Cutting Profiles for iPC.</Description>
+	<CuttingProfiles>
+		<CuttingProfile Name=" [ADH microperf]" ToolingPresetName="" OptimizationPresetName="" ProductionPresetName="" />
+		<CuttingProfile Name=" [Akilux]" ToolingPresetName="Akilux" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [carton rainant verso]" ToolingPresetName="carton rainant verso" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Carton]" ToolingPresetName="" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Dibond 3mm]" ToolingPresetName="Dibond 3mm" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Esko Sample Material - Cutting Profile]" FactoryName=" [Esko Sample Material - Cutting Profile]" ToolingPresetName="" OptimizationPresetName="" ProductionPresetName="" />
+		<CuttingProfile Name=" [Esko Sample Material]" FactoryName=" [Esko Sample Material]" ToolingPresetName="Sample Tooling Preset - High Quality" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [film transparent]" ToolingPresetName="film transparent" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Forex 10mm]" ToolingPresetName="" OptimizationPresetName="" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Forex 19mm]" ToolingPresetName="Forex 19mm" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Forex 3mm]" ToolingPresetName="Forex 3mm" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Forex 5mm]" ToolingPresetName="Forex 5mm" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Magnet 0,6mm]" ToolingPresetName="Magnet 0,6mm" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Medium 19mm]" ToolingPresetName="Medium 19mm" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Papier Texdecor]" ToolingPresetName="Papier texdecor" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Papier]" ToolingPresetName="Papier" OptimizationPresetName="" ProductionPresetName="" />
+		<CuttingProfile Name=" [Plexi 19mm]" ToolingPresetName="PLEXI 19 fraise multi" OptimizationPresetName="" ProductionPresetName="" />
+		<CuttingProfile Name=" [Plexi 3mm]" ToolingPresetName="Plexi 3mm" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Plexi 5mm]" ToolingPresetName="Plexi 5mm" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Plexi 6mm]" ToolingPresetName="Plexi 6mm" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [plume]" ToolingPresetName="plume 10" OptimizationPresetName="Esko Default" ProductionPresetName="Esko Default" />
+		<CuttingProfile Name=" [Polycarbonate]" ToolingPresetName="Polycarbonate" OptimizationPresetName="Remove double line and sequence" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [PVC 300 microns]" ToolingPresetName="PVC 300 microns" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [PVC 500 microns]" ToolingPresetName="PVC 500 microns" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [PVC 700 microns]" ToolingPresetName="PVC 500 600 700" OptimizationPresetName="Remove double line and sequence" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name=" [Vinyl]" ToolingPresetName="Vinyl" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name="Esko Default for Milling" Description="Standard optimization for Milling. &#xD;&#xA;Can be used for all materials." MadeBy="Esko" ModifiedBy="ESKO" FactoryName="Esko Default for Milling" ToolingPresetName="Dibond 3mm" OptimizationPresetName="Esko Default" ProductionPresetName="PrintSA" />
+		<CuttingProfile Name="Esko Default Packaging" Description="Standard optimization for Packaging. &#xD;&#xA;Can be used for all materials." MadeBy="Esko" FactoryName="Esko Default Packaging" ToolingPresetName="" OptimizationPresetName="Standard Packaging - Crease Cut Back 2mm" ProductionPresetName="Esko Default (1)" />
+		<CuttingProfile Name="Esko Default Standard Cut" Description="Standard optimization for shape cutting. &#xD;&#xA;Can be used for all materials." MadeBy="Esko" FactoryName="Esko Default Standard Cut" ToolingPresetName="" OptimizationPresetName="Standard Cut - Connect open curves" ProductionPresetName="Esko Default (1)" />
+		<CuttingProfile Name="Sample Cutting profile - FAST" Description="This is an example of how you can build up multiple production setup's for one material that is easy to alternate between." MadeBy="Esko" FactoryName="Sample Cutting profile - FAST" ToolingPresetName="Sample Tooling Preset - FAST" OptimizationPresetName="Esko Default" ProductionPresetName="Esko Default (1)" />
+		<CuttingProfile Name="Sample Cutting Profile - High Quality" Description="This is an example of how you can build up multiple production setup's for one material that is easy to alternate between." MadeBy="Esko" FactoryName="Sample Cutting Profile - High Quality" ToolingPresetName="Sample Tooling Preset - High Quality" OptimizationPresetName="Esko Default" ProductionPresetName="Esko Default (1)" />
+	</CuttingProfiles>
+</root>

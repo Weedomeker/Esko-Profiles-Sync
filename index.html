@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <link rel="stylesheet" type="text/css" href="./css/semantic.min.css">
+  <title>Esko Profil Sync</title>
+</head>
+
+<body>
+
+  <div class="ui segment" style="height: 100%; justify-content: space-between;">
+    <div class="ui two column very relaxed grid">
+      <!-- column 1 -->
+      <div class="column" style="flex-direction: column; padding-left: 25px;">
+        <a class="label">Esko</a>
+        <br>
+        <div class="ui mini action input">
+          <input id="hostPath" type="text" placeholder="Répertoire i-cut..." disabled
+            data-dashlane-rid="478d6f58de282d4c" data-form-type="query">
+          <button id="hostSelect" class="ui mini button orange" data-dashlane-rid="36a130fb25447443"
+            data-dashlane-label="true" data-form-type="action,search">Search</button>
+        </div>
+        <br>
+        <br>
+        <div class="ui form">
+          <div class="field">
+            <label>Profiles:</label>
+            <textarea id="hostText" readonly><pre><code></code></pre></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- column 2 -->
+      <div class="column" style="flex-direction: column; padding-right: 25px; ">
+        <a class="label">Pao</a>
+        <br>
+        <div class="ui mini action input">
+          <input id="targetPath" type="text" placeholder="Répertoire PAO..." disabled
+            data-dashlane-rid="478d6f58de282d4c" data-form-type="query">
+          <button id="targetSelect" class="ui mini button blue" data-dashlane-rid="36a130fb25447443"
+            data-dashlane-label="true" data-form-type="action,search">Search</button>
+        </div>
+        <br>
+        <br>
+        <div class="ui form">
+          <div class="field">
+            <label>Profiles:</label>
+            <textarea readonly disabled></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui vertical divider" >
+      Convert
+    </div>
+  </div>
+
+
+  <script src="./renderer.js"></script>
+</body>
+
+</html>

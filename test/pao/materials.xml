@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+   <Substrate>
+      <Name>AKILUX</Name>
+   </Substrate>
+   <Substrate>
+      <Name>AKYLUX</Name>
+   </Substrate>
+   <Substrate>
+      <Name>Carton</Name>
+   </Substrate>
+   <Substrate>
+      <Name>Dibond 3mm</Name>
+   </Substrate>
+   <Substrate>
+      <Name>Forex 19mm</Name>
+   </Substrate>
+   <Substrate>
+      <Name>Forex 3mm</Name>
+   </Substrate>
+   <Substrate>
+      <Name>Magnet 0,6mm</Name>
+   </Substrate>
+   <Substrate>
+      <Name>Medium 19mm</Name>
+   </Substrate>
+   <Substrate>
+      <Name>Papier</Name>
+   </Substrate>
+   <Substrate>
+      <Name>Plexi</Name>
+   </Substrate>
+   <Substrate>
+      <Name>TEST</Name>
+   </Substrate>
+   <Substrate>
+      <Name>forex</Name>
+   </Substrate>
+   <Substrate>
+      <Name>pvc</Name>
+   </Substrate>
+</Root>

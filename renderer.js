@@ -16,9 +16,13 @@ document.getElementById('hostSelect').addEventListener('click', async () => {
   const filePath = await window.api.showDialog()
   const hostPath = await document.getElementById('hostPath')
   const hostText = await document.getElementById('hostText')
+  const targetText = await document.getElementById('targetText')
   
   hostPath.value = filePath.dirPath
   hostText.value = filePath.readFile
+  targetText.value = filePath.conv
+  hostText.innerHTML = filePath.prismifiedHost
+  targetText.innerHTML = filePath.prismifiedTarget
 })
 
 

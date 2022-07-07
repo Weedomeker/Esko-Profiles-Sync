@@ -10,13 +10,13 @@
   "author": "Weedomeker",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^19.0.4",
-    "gulp": "^4.0.2"
+    "electron": "^19.0.4"
   },
   "dependencies": {
     "electron-store": "^8.0.2",
     "fs": "^0.0.1-security",
-    "highlight.js": "^11.5.1",
-    "semantic-ui-css": "^2.4.1"
+    "prismjs": "^1.28.0",
+    "semantic-ui-css": "^2.4.1",
+    "xml-js": "^1.6.11"
   }
 }

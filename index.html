@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
   <link rel="stylesheet" type="text/css" href="./css/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/prism.css">
   <title>Esko Profil Sync</title>
 </head>
 
@@ -27,7 +28,11 @@
         <div class="ui form">
           <div class="field">
             <label>Profiles:</label>
-            <textarea id="hostText" readonly><pre><code></code></pre></textarea>
+            <!-- <textarea id="hostText" readonly></textarea> -->
+            <pre class="line-numbers" style="width: 350px; height: 300px; font-size: 10px; overflow: auto; white-space: pre-line;">
+              <code id="hostText" class="language-xml">
+              </code>
+            </pre>
           </div>
         </div>
       </div>
@@ -46,19 +51,24 @@
         <br>
         <div class="ui form">
           <div class="field">
-            <label>Profiles:</label>
-            <textarea readonly disabled></textarea>
+            <label>Materials:</label>
+            <!-- <textarea id="targetText" readonly></textarea> -->
+            <pre style="width: 350px; height: 300px; font-size: 8px; overflow: auto;">
+              <code id="targetText" class="language-xml">
+              </code>
+            </pre>
           </div>
         </div>
       </div>
     </div>
-    <div class="ui vertical divider" >
+    <div class="ui vertical divider" style="font-size: 10px;" >
       Convert
     </div>
   </div>
 
 
   <script src="./renderer.js"></script>
+  <script src="./css/prism.js"></script>
 </body>
 
 </html>

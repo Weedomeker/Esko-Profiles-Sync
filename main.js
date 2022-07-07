@@ -2,6 +2,8 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const path = require('path');
 const fs = require('fs');
+const convert = require('xml-js');
+const Prism = require('prismjs');
 const Store = require('electron-store');
 const store = new Store();
 
@@ -45,7 +47,14 @@ app.on('window-all-closed', () => {
 // In this file you can include the rest of your app's specific main process
 // code. Vous pouvez également le mettre dans des fichiers séparés et les inclure ici.
 
-let dir = "";
+let dirEsko = (() => {
+  if (store.get('hostPath') === undefined) {
+    return 'Répertoire i-cut...'
+  } else {
+    return store.get('hostPath')
+  }
+})
+
 const filePath = async () => dialog.showOpenDialog({
   properties: ['openDirectory'],
 }).then(result => {
@@ -56,20 +65,45 @@ const filePath = async () => dialog.showOpenDialog({
   } else {
     console.log(result.filePaths[0])
     store.set('hostPath', result.filePaths[0])
-    return dir = result.filePaths[0];
+    return result.filePaths[0];
   }
 }).catch(err => {
   console.log(err)
 });
 
+const profilesFile = fs.readFileSync(dirEsko() + '\\CuttingProfiles.xml', 'utf8');
+
+const conversion = () => {
+  const profilesData = JSON.parse(convert.xml2json(profilesFile, { compact: true, spaces: 2 }));
+  const obj = profilesData.root.CuttingProfiles.CuttingProfile
+  let arr = []
+  for (const i in obj) {
+    arr.push(`<Substrate>\n	<Name>${obj[i]._attributes.Name}</Name>\n</Substrate>\n`);
+  };
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].replace('[', '');
+    arr[i] = arr[i].replace(']', '');
+    arr[i] = arr[i].replace(' ', '');
+  }
+  const data = (`<?xml version="1.0" encoding="UTF-8"?>\n<Root>\n${arr.join("")}</Root>`);
+  return data;
+}
+
+const prismifiedHost = Prism.highlight(profilesFile, Prism.languages.xml, 'xml');
+const prismifiedTarget = Prism.highlight(conversion(), Prism.languages.xml, 'xml');
+
 
 //Ecoute événement
 ipcMain.handle('dialog:open', async (event, args) => {
   const dirPath = await filePath();
-  const readFile = await fs.readFileSync(dir + '\\CuttingProfiles.xml', 'utf8');
+  const readFile = await profilesFile;
+  const conv = await conversion();
   return {
     dirPath,
-    readFile
+    readFile,
+    prismifiedHost,
+    conv,
+    prismifiedTarget
   }
 })
 

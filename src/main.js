@@ -1,28 +1,28 @@
+/* eslint-disable electron/default-value-changed */
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, ipcMain, dialog } = require('electron')
-const path = require('path');
-const fs = require('fs');
-const convert = require('xml-js');
-const Prism = require('prismjs');
-const Store = require('electron-store');
-const store = new Store();
+const path = require('path')
+const fs = require('fs')
+const convert = require('xml-js')
+const Prism = require('prismjs')
+const Store = require('electron-store')
+const store = new Store()
 
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
     width: 800,
     height: 600,
+    title: 'Esko Profiles Sync  V' + app.getVersion(),
     webPreferences: {
-      //contextIsolation: false,
       nodeIntegration: true,
-      preload: path.join(__dirname, 'preload.js')
-    }
-  });
+      preload: path.join(__dirname, './preload.js'),
+    },
+  })
   // et charger l'index.html de l'application.
-  win.loadFile('index.html');
+  win.loadFile(path.join(__dirname, '../public/index.html'))
   //win.setMenu(null)
-  win.webContents.openDevTools({ mode: 'bottom' });
-
+  win.webContents.openDevTools({ mode: 'bottom' })
 }
 
 // Cette méthode sera appelée quand Electron aura fini
@@ -55,55 +55,65 @@ let dirEsko = (() => {
   }
 })
 
-const filePath = async () => dialog.showOpenDialog({
-  properties: ['openDirectory'],
-}).then(result => {
-  //console.log(result)
-  if (result.canceled) {
-    console.log('User canceled opening file')
-    return 'Répertoire i-cut...'
-  } else {
-    console.log(result.filePaths[0])
-    store.set('hostPath', result.filePaths[0])
-    return result.filePaths[0];
-  }
-}).catch(err => {
-  console.log(err)
-});
+const filePath = async () =>
+   dialog
+  .showOpenDialog({
+    properties: ['openDirectory'],
+    filters: [{ name: 'CuttingProfiles', extensions: ['xml'] }],
+  })
+  .then((result) => {
+    //console.log(result)
+    if (result.canceled) {
+      console.log('User canceled opening file')
+      return 'Répertoire i-cut...'
+    } else {
+      console.log(result.filePaths[0])
+      store.set('hostPath', result.filePaths[0])
+      return result.filePaths[0]
+    }
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 
-const profilesFile = fs.readFileSync(dirEsko() + '\\CuttingProfiles.xml', 'utf8');
+  const profilesFile = fs.readFileSync(dirEsko() + '\\CuttingProfiles.xml', 'utf8')
 
 const conversion = () => {
-  const profilesData = JSON.parse(convert.xml2json(profilesFile, { compact: true, spaces: 2 }));
+  const profilesData = JSON.parse(
+    convert.xml2json(profilesFile, { compact: true, spaces: 2 })
+  )
   const obj = profilesData.root.CuttingProfiles.CuttingProfile
   let arr = []
   for (const i in obj) {
-    arr.push(`<Substrate>\n	<Name>${obj[i]._attributes.Name}</Name>\n</Substrate>\n`);
-  };
-  for (let i = 0; i < arr.length; i++) {
-    arr[i] = arr[i].replace('[', '');
-    arr[i] = arr[i].replace(']', '');
-    arr[i] = arr[i].replace(' ', '');
+    arr.push(
+      `<Substrate>\n	<Name>${obj[i]._attributes.Name}</Name>\n</Substrate>\n`
+    )
   }
-  const data = (`<?xml version="1.0" encoding="UTF-8"?>\n<Root>\n${arr.join("")}</Root>`);
-  return data;
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].replace('[', '')
+    arr[i] = arr[i].replace(']', '')
+    arr[i] = arr[i].replace(' ', '')
+  }
+  const data = `<?xml version="1.0" encoding="UTF-8"?>\n<Root>\n${arr.join(
+    ''
+  )}</Root>`
+  return data
 }
 
-const prismifiedHost = Prism.highlight(profilesFile, Prism.languages.xml, 'xml');
-const prismifiedTarget = Prism.highlight(conversion(), Prism.languages.xml, 'xml');
-
+const prismifiedHost = Prism.highlight(profilesFile, Prism.languages.xml, 'xml')
+const prismifiedTarget = Prism.highlight(conversion(),Prism.languages.xml, 'xml')
 
 //Ecoute événement
-ipcMain.handle('dialog:open', async (event, args) => {
-  const dirPath = await filePath();
-  const readFile = await profilesFile;
-  const conv = await conversion();
+ipcMain.handle('dialog:open', async () => {
+  const dirPath = await filePath()
+  const readFile = await profilesFile
+  const conv = await conversion()
   return {
     dirPath,
     readFile,
     prismifiedHost,
     conv,
-    prismifiedTarget
+    prismifiedTarget,
   }
 })
 

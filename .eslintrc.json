@@ -1,19 +1,19 @@
 {
-  "env": {
-    "commonjs": true,
-    "es2021": true,
-    "node": true,
-    "browser": true,
-    "es6": true
-  },
-  "extends": ["eslint:recommended", "plugin:electron/recommended"],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": ["electron"],
-  "rules": {
-    "semi": ["error", "never"],
-    "quotes": ["error", "single"]
-  }
+    "env": {
+        "commonjs": true,
+        "es2021": true,
+        "node": true,
+        "browser": true,
+        "es6": true
+    },
+    "extends": ["eslint:recommended", "plugin:electron/recommended"],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": ["electron"],
+    "rules": {
+        "semi": ["error", "never"],
+        "quotes": ["error", "single"]
+    }
 }

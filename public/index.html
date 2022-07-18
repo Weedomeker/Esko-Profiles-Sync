@@ -1,73 +1,124 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+        <link rel="stylesheet" type="text/css" href="../assets/css/prism.css" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="../assets/css/semantic.min.css"
+        />
+    </head>
 
-<head>
-  <meta charset="UTF-8">
-  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-  <link rel="stylesheet" type="text/css" href="../assets/css/prism.css">
-  <link rel="stylesheet" type="text/css" href="../assets/css/semantic.min.css">
-</head>
-
-<body>
-
-  <div class="ui segment" style="height: 100%; justify-content: space-between;">
-    <div class="ui two column very relaxed grid">
-      <!-- column 1 -->
-      <div class="column" style="flex-direction: column; padding-left: 25px;">
-        <a class="label">Esko</a>
-        <br>
-        <div class="ui mini action input">
-          <input id="hostPath" type="text" placeholder="Répertoire i-cut..." disabled
-            data-dashlane-rid="478d6f58de282d4c" data-form-type="query">
-          <button id="hostSelect" class="ui mini button orange" data-dashlane-rid="36a130fb25447443"
-            data-dashlane-label="true" data-form-type="action,search">Search</button>
-        </div>
-        <br>
-        <br>
-        <div class="ui form">
-          <div class="field">
-            <label>Profiles:</label>
-            <!-- <textarea id="hostText" readonly></textarea> -->
-            <pre class="line-numbers"
-              style="width: 350px; height: 300px; font-size: 10px; overflow: auto; white-space: pre-line;">
+    <body>
+        <div
+            class="ui segment"
+            style="height: 100%; justify-content: space-between"
+        >
+            <div class="ui two column very relaxed grid">
+                <!-- column 1 -->
+                <div
+                    class="column"
+                    style="flex-direction: column; padding-left: 25px"
+                >
+                    <a class="label">Esko</a>
+                    <br />
+                    <div class="ui mini action input">
+                        <input
+                            id="hostPath"
+                            type="text"
+                            placeholder="Répertoire i-cut..."
+                            disabled
+                            data-dashlane-rid="478d6f58de282d4c"
+                            data-form-type="query"
+                        />
+                        <button
+                            id="hostSelect"
+                            class="ui mini button orange"
+                            data-dashlane-rid="36a130fb25447443"
+                            data-dashlane-label="true"
+                            data-form-type="action,search"
+                        >
+                            Search
+                        </button>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="ui form">
+                        <div class="field">
+                            <label>Profiles:</label>
+                            <!-- <textarea id="hostText" readonly></textarea> -->
+                            <pre
+                                class="line-numbers"
+                                style="
+                                    width: 350px;
+                                    height: 300px;
+                                    font-size: 10px;
+                                    overflow: auto;
+                                    white-space: pre-line;
+                                "
+                            >
               <code id="hostText" class="language-xml">
               </code>
             </pre>
-          </div>
-        </div>
-      </div>
+                        </div>
+                    </div>
+                </div>
 
-      <!-- column 2 -->
-      <div class="column" style="flex-direction: column; padding-right: 25px; ">
-        <a class="label">Pao</a>
-        <br>
-        <div class="ui mini action input">
-          <input id="targetPath" type="text" placeholder="Répertoire PAO..." disabled
-            data-dashlane-rid="478d6f58de282d4c" data-form-type="query">
-          <button id="targetSelect" class="ui mini button blue" data-dashlane-rid="36a130fb25447443"
-            data-dashlane-label="true" data-form-type="action,search">Search</button>
-        </div>
-        <br>
-        <br>
-        <div class="ui form">
-          <div class="field">
-            <label>Materials:</label>
-            <!-- <textarea id="targetText" readonly></textarea> -->
-            <pre style="width: 350px; height: 300px; font-size: 8px; overflow: auto;">
+                <!-- column 2 -->
+                <div
+                    class="column"
+                    style="flex-direction: column; padding-right: 25px"
+                >
+                    <a class="label">Pao</a>
+                    <br />
+                    <div class="ui mini action input">
+                        <input
+                            id="targetPath"
+                            type="text"
+                            placeholder="Répertoire PAO..."
+                            disabled
+                            data-dashlane-rid="478d6f58de282d4c"
+                            data-form-type="query"
+                        />
+                        <button
+                            id="targetSelect"
+                            class="ui mini button blue"
+                            data-dashlane-rid="36a130fb25447443"
+                            data-dashlane-label="true"
+                            data-form-type="action,search"
+                        >
+                            Search
+                        </button>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="ui form">
+                        <div class="field">
+                            <label>Materials:</label>
+                            <!-- <textarea id="targetText" readonly></textarea> -->
+                            <pre
+                                style="
+                                    width: 350px;
+                                    height: 300px;
+                                    font-size: 8px;
+                                    overflow: auto;
+                                "
+                            >
               <code id="targetText" class="language-xml">
               </code>
             </pre>
-          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui vertical divider" style="font-size: 10px">
+                Convert
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="ui vertical divider" style="font-size: 10px;">
-      Convert
-    </div>
-  </div>
 
-  <script src="../src/renderer.js"></script>
-  <script src="../assets/css/prism.js"></script>
-</body>
-
+        <script src="../src/renderer.js"></script>
+        <script src="../assets/css/prism.js"></script>
+    </body>
 </html>

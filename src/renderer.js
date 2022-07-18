@@ -1,25 +1,24 @@
+const hostPath = document.getElementById('hostPath')
+const hostText = document.getElementById('hostText')
+const targetText = document.getElementById('targetText')
+const hostSelect = document.getElementById('hostSelect')
+
 onload = async () => {
-  const result = await window.api.store()
-  console.log('hostPath:', result.hostPath)
-
-  const hostPath = await document.getElementById('hostPath')
-
-  if (result.hostPath === undefined) {
-    hostPath.value = 'Répertoire i-cut...'
-  } else {
-    hostPath.value = result.hostPath
-  }
+    const result = await window.api.profilesPath()
+    // console.log('hostPath:', result.hostPath)
+    hostPath.value = result
 }
 
-document.getElementById('hostSelect').addEventListener('click', async () => {
-  const openFile = await window.api.showDialog()
-  const hostPath = await document.getElementById('hostPath')
-  const hostText = await document.getElementById('hostText')
-  const targetText = await document.getElementById('targetText')
+hostSelect.addEventListener('click', async () => {
+    const openFile = await window.api.showDialog()
+    const data = await window.api.readFile()
+    const conv = await window.api.conversion(data)
+    const beautifyData = await window.api.beautify(data)
+    const beautifyConv = await window.api.beautify(conv)
 
-  hostPath.value = openFile.dirPath
-  hostText.value = openFile.readFile
-  targetText.value = openFile.conv
-  hostText.innerHTML = openFile.prismifiedHost
-  targetText.innerHTML = openFile.prismifiedTarget
+    hostPath.value = openFile
+    hostText.innerHTML = beautifyData
+    targetText.innerHTML = beautifyConv
+    // hostText.innerHTML = await openFile.prismifiedHost
+    // targetText.innerHTML = await openFile.prismifiedTarget
 })
